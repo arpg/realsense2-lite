@@ -18,8 +18,6 @@ int main(int argc, char** argv){
 
     ros::NodeHandle nh;
 
-    ros::Publisher pub_start_imu_stream = nh.advertise<std_msgs::Bool>("imu_start_flag", 10);
-
     ros::Publisher pub_depth     = nh.advertise<cv_bridge::CvImage>("/depth", 100);
     ros::Publisher pub_ir0       = nh.advertise<cv_bridge::CvImage>("/image0",100);
     ros::Publisher pub_ir1       = nh.advertise<cv_bridge::CvImage>("/image1",100);
