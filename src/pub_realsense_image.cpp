@@ -23,9 +23,6 @@ int main(int argc, char** argv){
     ros::Publisher pub_ir1       = nh.advertise<cv_bridge::CvImage>("/image1",100);
     ros::Publisher pub_rgb       = nh.advertise<cv_bridge::CvImage>("/rgb",100);
 
-    // Declare depth colorizer for pretty visualization of depth data
-    rs2::colorizer color_map;
-
     // Declare RealSense pipeline, encapsulating the actual device and sensors
     rs2::pipeline pipe;
 
