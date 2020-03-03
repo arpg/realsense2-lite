@@ -63,7 +63,7 @@ int main(int argc, char** argv){
             continue;
         }
 
-        // ros::Time time_start = ros::Time::now();
+        //ros::Time time_start = ros::Time::now();
         rs2::depth_frame depth_frame = data.get_depth_frame();
         rs2::video_frame color = data.get_color_frame();
         rs2::video_frame infra0 = data.get_infrared_frame(1);
@@ -96,9 +96,9 @@ int main(int argc, char** argv){
         pub_ir1.publish(image1);
         pub_rgb.publish(rgb);
 
-        // ros::Time time_end = ros::Time::now();
-        // ros::Duration time_spend = time_end - time_start;
-        // ROS_INFO("we spend %f seconds to get and publish image", time_spend.toSec());
+        //ros::Time time_end = ros::Time::now();
+        //ros::Duration time_spend = time_end - time_start;
+        //ROS_INFO("we spend %f seconds to get and publish image", time_spend.toSec());
 
         counter++ ;
     }
