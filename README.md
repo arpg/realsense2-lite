@@ -13,6 +13,8 @@ catkin_make
 ### Use
 Connect your realsense D435, open a terminal
 ```
+cd your_ros_workspace
+source devel/setup.bash
 roscore
 ```
 In another terminal
