@@ -31,7 +31,7 @@ The image width is 640X480 and frquency is 30 Hz, you can modify them in the cod
 ### Use the received message
 The image topic you receive is encoded in ros message type `cv_bridge::CvImage`. <br>
 For ir sensor the [image encoding](http://docs.ros.org/jade/api/sensor_msgs/html/namespacesensor__msgs_1_1image__encodings.html) is `8UC1`, depth is `16UC1` and rgb is `8UC3`.
-Normally you want ot extract the opencv Mat after you receive image. Your subcriber's call back function for ir sensor should be like
+Normally you want ot extract the opencv Mat after you receive image. Your subcriber's call back function for ir sensor should be something like
 ```
 void img0_callback(const sensor_msgs::ImageConstPtr &img_msg)
 {
@@ -51,7 +51,7 @@ void img0_callback(const sensor_msgs::ImageConstPtr &img_msg)
     return img;
 }
 ```
-for depth image it should be like
+for depth image it should be something like
 ```
 void depth_input(const sensor_msgs::ImageConstPtr &depth_input)
 {    
