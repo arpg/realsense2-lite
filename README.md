@@ -13,12 +13,12 @@ catkin_make
 ### Use
 Connect your realsense D435, open a terminal
 ```
-cd your_ros_workspace
-source devel/setup.bash
 roscore
 ```
 In another terminal
 ```
+cd your_ros_workspace
+source devel/setup.bash
 rosrun rs2_lite pub_realsense_image
 ```
 You should be able to get 4 topics from ir sensor, depth and rgb
