@@ -69,7 +69,7 @@ int main(int argc, char** argv){
         rs2::video_frame infra0 = data.get_infrared_frame(1);
         rs2::video_frame infra1 = data.get_infrared_frame(2);
 
-        // Create OpenCV matrix of size (w,h) from the colorized depth data
+        // Create OpenCV matrix of size (w,h) from depth rgb and ir stream
         Mat depth_image(Size(w, h), CV_16UC1, (void*)depth_frame.get_data(), Mat::AUTO_STEP);
         Mat color_image(Size(w, h), CV_8UC3, (void*)color.get_data(), Mat::AUTO_STEP);
 
