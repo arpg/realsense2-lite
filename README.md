@@ -1,4 +1,4 @@
-Publish D435 realsense raw image without realsense-ros package. Test environment Ubuntu18.04 LTS, ROS melodic
+Publish D435/D455 realsense raw image without realsense-ros package. Test environment Ubuntu18.04/20.04 LTS, ROS melodic, neotic
 ### Dependency
 Opencv <br>
 [libRealsense2](https://github.com/IntelRealSense/librealsense) <br>
@@ -19,21 +19,22 @@ In another terminal
 ```
 cd your_ros_workspace
 source devel/setup.bash
-rosrun rs2_lite pub_realsense_image
+roslaunch rs2_lite pub_realsense_image.launch
 ```
-You should be able to get 4 topics from ir sensor, depth and rgb
+You should be able to get 4 topics from ir sensor, depth, rgb, rgb_raw. The `rgb` topic is aligned with the `/image0`. You need tp let the `publish_aligned_rgb` to be `True` to have this topic. `rgb_raw` is the original `rgb` image. Align the rgb with depth causes a delay.
 ```
 /image0
 /image1
 /depth
 /rgb
+/rgb_raw
 ```
 The image width is 640X480 and frquency is 30 Hz, you can modify them in the code. But the realsense can only work in certain frame frequency and image size, the default setting is recommended.
 
 ### Use the received message
 The image topic you receive is encoded in ros message type `cv_bridge::CvImage`. <br>
-For ir sensor the [image encoding](http://docs.ros.org/jade/api/sensor_msgs/html/namespacesensor__msgs_1_1image__encodings.html) is `8UC1`, depth is `16UC1` and rgb is `8UC3`.
-Normally you want ot extract the opencv Mat after you receive image. Your subcriber's call back function for ir sensor should be something like
+For ir sensor the [image encoding](http://docs.ros.org/jade/api/sensor_msgs/html/namespacesensor__msgs_1_1image__encodings.html) is `mono8`, depth is `32FC1` and rgb is `rgb8`.
+If you want to extract the opencv Mat after you receive image. Your subcriber's call back function for ir sensor should be something like
 ```
 void img0_callback(const sensor_msgs::ImageConstPtr &img_msg)
 {

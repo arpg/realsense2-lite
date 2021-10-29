@@ -1,0 +1,15 @@
+<launch>
+    <node type="pub_realsense_image" pkg="rs2_lite" name="pub_image_realsense" output="screen">
+    <!-- this will publish depth aligned rgb, which will slow down the publication speed. Max around 20 fps, 640X480 -->
+        <param name="publish_aligned_rgb" type="bool" value="False" />
+        <rosparam param="mK0" >[386.88105987, 0, 317.92102621, 0, 387.08652331, 244.98647375, 0, 0, 1]</rosparam>
+        <rosparam param="mD0" >[0.00860171,-0.00636106,-0.00025521,0.00038817,0.0]</rosparam>
+        <rosparam param="mR0" >[1,0,0,0,1,0,0,0,1]</rosparam>
+        <rosparam param="mP0" >[386.88105987, 0, 317.92102621, 0, 0, 387.08652331, 244.98647375, 0, 0, 0, 1, 0]</rosparam>
+
+        <rosparam param="mK1" >[387.06032264, 0, 317.51143008, 0, 387.28806264, 244.99706921, 0, 0, 1]</rosparam>
+        <rosparam param="mD1" >[0.00913733,-0.00713428,-0.0002796,0.00004982,0.0]</rosparam>
+        <rosparam param="mR1" >[1,0,0,0,1,0,0,0,1]</rosparam>
+        <rosparam param="mP1" >[387.06032264, 0, 317.51143008, 0, 0, 387.28806264, 244.99706921, 0, 0, 0, 1, 0]</rosparam>
+    </node>
+</launch>
