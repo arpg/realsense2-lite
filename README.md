@@ -1,8 +1,8 @@
 Publish D435/D455 realsense raw image without realsense-ros package. Test environment Ubuntu18.04/20.04 LTS, ROS melodic, neotic
 ### Dependency
-Opencv <br>
+Opencv (Should have if you have installed ROS)<br>
 [libRealsense2](https://github.com/IntelRealSense/librealsense) <br>
-Eigen <br>
+Eigen (Should have if you have installed ROS)<br>
 ### Install
 ```
 cd your_ros_workspace/src
