@@ -76,6 +76,8 @@ int main(int argc, char** argv){
     //align color image to depth. See my realsense C++ test example 'depth_align_rgb.cpp', align image will cost about 5~10 ms
     
     rs2::align align_to_depth(RS2_STREAM_DEPTH);
+    rs2::hole_filling_filter  hole_filter;
+    hole_filter.set_option(RS2_OPTION_HOLES_FILL,2);
     //rs2::align align_to_img0(RS2_STREAM_INFRARED);
 
     bool end_loop = false;
@@ -121,7 +123,7 @@ int main(int argc, char** argv){
             rgb_align.image  = color_image_align_to_depth.clone();
         }
 
-        rs2::depth_frame depth_frame = data.get_depth_frame();
+        rs2::depth_frame depth_frame = hole_filter.process(data.get_depth_frame());
         rs2::video_frame color = data.get_color_frame();
         rs2::video_frame infra0 = data.get_infrared_frame(1);
         rs2::video_frame infra1 = data.get_infrared_frame(2);
